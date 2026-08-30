@@ -1,0 +1,185 @@
+USE_PREFIX: true
+PREFIX: '&3&lKoTH &8» '
+
+NO_PERMISSION: '&cNo tienes permiso para usar ese comando.'
+COMMAND_NOT_FOUND: '%prefix% &cEl comando &e%command% &cno existe. Usa &f/koth help &cpara ver los comandos disponibles.'
+
+#  GESTIÓN DE KoTHs (crear/eliminar/activar)
+KOTH_CREATED: '&aKoTH &6%koth% &acreado exitosamente con ID: &e%id%'
+KOTH_CREATED_HINT: '&7Usa &f/koth wand %koth% &7para seleccionar el área.'
+KOTH_ALREADY_EXISTS: '&cYa existe un KoTH con ese nombre.'
+KOTH_REMOVED: '&aKoTH &6%koth% &aeliminado exitosamente.'
+KOTH_REMOVE_FAILED: '&cNo se pudo eliminar el KoTH.'
+KOTH_NOT_FOUND: '&cNo se encontró el KoTH especificado.'
+KOTH_ALREADY_ACTIVE: '&cEl KoTH &6%koth% &cya está activo.'
+KOTH_NOT_ACTIVE: '&cEl KoTH &6%koth% &cno está activo.'
+KOTH_ENABLED: '&aKoTH &6%koth% &aha sido &aactivado.'
+KOTH_DISABLED: '&aKoTH &6%koth% &aha sido &cdesactivado.'
+KOTH_DISABLED_CANNOT_START: '&cEl KoTH &6%koth% &cestá desactivado. Usa &f/koth enable %koth% &cpara activarlo.'
+KOTH_STARTED: '&aKoTH iniciado. Captura: &e%capture% &aMax: &e%max%'
+KOTH_START_FAILED: '&cNo se pudo iniciar el KoTH.'
+KOTH_ENDED: '%prefix% &a%player% &eha terminado el koth &9&l%koth%&e.'
+KOTH_NO_AREA: '&cEl KoTH &6%koth% &cno tiene un área definida. Usa &f/koth wand %koth% &cpara establecer los puntos.'
+
+# Título de eventos programados
+KOTH_STARTING:
+  - '&r'
+  - '&6[King of the Hill]'
+  - '&eEl koth &9&l%koth% &eha comenzado en:'
+  - '&eCoordenadas: &f%x%, %y%, %z%'
+  - '&eIniciado por: &f%player%'
+  - '&r'
+
+#  CAPTURA (en tiempo real)
+ATTEMPTING_CAPTURE: '%prefix% &eEl jugador &a%player% &eestá capturando el koth &9&l%koth% &7- &c%time%'
+LOST_CONTROL: '%prefix% &eEl jugador &a%player% &eha dejado de capturar el koth &9&l%koth% &7- &c%time% &7restante'
+TIME_LEFT: '%prefix% &a%player% &eestá capturando el koth &9&l%koth% &7- &c%time% &7restante'
+MAX_RUN_TIME: '&eEl koth &9&l%koth% &eha superado el tiempo máximo de ejecución y terminó.'
+
+CAPTURED_KOTH:
+  - '&r'
+  - '&7▉▉▉▉▉▉▉'
+  - '&7▉&5▉&7▉▉&5▉▉&7▉'
+  - '&7▉&5▉&7▉&5▉▉&7▉▉ &6[King of the Hill]'
+  - '&7▉&5▉▉▉&7▉▉▉ &eEl koth &9&l%koth% &eha sido capturado'
+  - '&7▉&5▉▉▉&7▉▉▉ &epor &6&l%player% &edel clan &8[&6%gclan_name%&8]'
+  - '&7▉&5▉&7▉&5▉▉&7▉▉ &eCapturado en: &c%capture_time%'
+  - '&7▉&5▉&7▉▉&5▉▉&7▉'
+  - '&7▉▉▉▉▉▉▉'
+  - '&r'
+
+ANNOUNCE_KOTH_ON_JOIN:
+  - '&r'
+  - '&6[King of the Hill]'
+  - '&eEl koth &9&l%koth% &eestá actualmente activo'
+  - '&eTiempo restante: &c%time%'
+  - '&r'
+
+#  RECOMPENSAS
+INVENTORY_FULL: '%prefix% &cTu inventario estaba lleno, su premio se guardó en tu menú de reclamos (/koth claim).'
+INVENTORY_FULL_DROP: '%prefix% &cTu inventario estaba lleno, su premio se dropeó en el suelo.'
+REWARDS_SAVED: '&aRecompensas guardadas para &6%koth%&a.'
+REWARDS_SAVE_FAILED: '&cNo se pudieron guardar las recompensas.'
+CLAIM_NO_REWARDS: '%prefix% &cNo tienes recompensas pendientes.'
+CLAIM_ALREADY_OPEN: '%prefix% &cYa tienes el menú de recompensas abierto.'
+CLAIM_ERROR: '%prefix% &cError al abrir el menú de recompensas.'
+CLAIM_ITEMS_DROPPED: '%prefix% &eSe dropearon &c%count% &eitems que quedaron en el menú.'
+CLAIM_COMPLETED: '%prefix% &aRecompensas reclamadas exitosamente.'
+CLAIM_NO_DROP: '%prefix% &cNo puedes dropear items de este menú. Tómalos con click izquierdo.'
+CLAIM_NO_MOVE: '%prefix% &cSolo puedes tomar items con click izquierdo. No puedes moverlos ni agregar items.'
+LOOT_READ_ONLY: '%prefix% &cEste menú es solo de visualización. No puedes tomar ni mover los items.'
+
+#  COMANDOS
+COMMAND_ADDED: '&aComando añadido al KoTH &6%koth%&a:'
+COMMAND_ALREADY_EXISTS: '&cEste comando ya está registrado en el KoTH.'
+COMMAND_REMOVED: '&aComando eliminado del KoTH &6%koth%&a: &7%command%'
+COMMAND_NOT_FOUND_IN_KOTH: '&cNo se encontró el comando especificado en el KoTH &6%koth%&c.'
+
+#  HORARIOS (SCHEDULE)
+SCHEDULE_CREATED: '&aHorario creado exitosamente con ID: &e%id%'
+SCHEDULE_REMOVED: '&aHorario &e%id% &aeliminado exitosamente.'
+SCHEDULE_NOT_FOUND: '&cNo se encontró el horario especificado.'
+SCHEDULE_INVALID_DAY: '&cDía inválido. Usa: MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY, DAILY'
+SCHEDULE_INVALID_TIME: '&cFormato de hora inválido. Usa HH:MM (ej: 18:00)'
+SCHEDULE_INVALID_TIMES: '&cTiempos inválidos.'
+NO_SCHEDULES: '&cNo hay horarios programados.'
+DUPLICATE_SCHEDULE: '%prefix% &cYa existe un horario para &6%koth% &cel &e%day% &ca las &e%time%&c.'
+
+#  WAND (SELECCIÓN DE ÁREA)
+WAND_RECEIVED: '&aHas recibido la varita de selección para &6%koth%&a.'
+WAND_POINT1_SET: '&aPunto 1 de &6%koth% &aestablecido en: &e%x%, %y%, %z%'
+WAND_POINT2_SET: '&aPunto 2 de &6%koth% &aestablecido en: &e%x%, %y%, %z%'
+WAND_CENTER_CALCULATED: '&aCentro del KoTH &6%koth% &acalculado automáticamente.'
+WAND_NOT_ASSOCIATED: '&cEste wand no está asociado a ningún KoTH.'
+
+#  TELEPORT / RELOAD
+TELEPORTED_TO_KOTH: '&aTeletransportado al centro de &6%koth%&a.'
+RELOAD_COMPLETE: '&aTodas las configuraciones han sido recargadas en &e%time%ms&a.'
+
+#  TÍTULOS DE GUIs
+gui-titles:
+  rewards: '&8Recompensas: &e%koth%'
+  loot: '&8Recompensas de %koth%'
+  claim: '&8Recompensas Pendientes'
+
+#  INFO DE KoTH (/koth info)
+koth-info:
+  lines-info:
+    - '&7&m--------------------'
+    - '&6&lInformación del KoTH'
+    - '&eID: &f{id}'
+    - '&eNombre: &f{koth}'
+    - '&eEstado: {status}'
+    - '&eEn curso: {active_status}'
+    - '&eCoords: &f{x}, {y}, {z}'
+    - '&eComandos: &f{commands_count}'
+    - '&eRecompensas: &f{rewards_count} items'
+    - '&7&m--------------------'
+  status-enabled: '&aActivado'
+  status-disabled: '&cDesactivado'
+  active-yes: '&aSi'
+  active-no: '&cNo'
+  coords-not-available: '&7N/A'
+
+#  LISTA DE KoTHs (/koth list)
+koths-list:
+  lines-koths:
+    - '&7&m--------------------'
+    - '&6&lLista de KoTHs'
+    - '{entries}'
+    - '&7&m--------------------'
+  entry-koths: '&e{pos}. &f{koth} &7- {status}'
+
+#  LISTA DE HORARIOS (/koth schedule)
+koths-schedule:
+  lines-koths:
+    - '&7&m-------------------------------------------------'
+    - '&6&lHorario de KoTHs'
+    - '{entries}'
+    - '&7&m-------------------------------------------------'
+  entry-koths: '&6{pos}. &9{koth} &eDía: &c{day} &eHora: &c{time} &7(Tiempo restante: &f{time_left}&7)'
+
+#  AYUDA (/koth help)
+help:
+  basic:
+    - '&7&m-------------------------------------------------'
+    - '&6&lKoTH &7- Comandos disponibles'
+    - '&e/koth claim &7- &fAbre el menú de recompensas pendientes.'
+    - '&e/koth loot <koth|id> &7- &fMuestra la GUI (solo lectura) de recompensas.'
+    - '&e/koth schedule &7- &fMuestra los próximos KoTHs ordenados por tiempo.'
+    - '&7&m-------------------------------------------------'
+  page-1:
+    - '&7&m-------------------------------------------------'
+    - '&6&lKoTH &7(Página {page}/{max})'
+    - '&e/koth create <koth> &7- &fCrea un nuevo KoTH y le asigna un ID único.'
+    - '&e/koth remove <koth|id> &7- &fElimina el KoTH y borra sus configuraciones.'
+    - '&e/koth list &7- &fMuestra la lista de KoTHs registrados.'
+    - '&e/koth enable <koth|id> &7- &fActiva o desactiva un KoTH.'
+    - '&e/koth reload &7- &fRecarga configuraciones y base de datos.'
+    - ''
+    - '&7Usa &f/koth help 2 &7para más comandos.'
+    - '&7&m-------------------------------------------------'
+  page-2:
+    - '&7&m-------------------------------------------------'
+    - '&6&lKoTH &7(Página {page}/{max})'
+    - '&e/koth wand <koth|id> &7- &fOtorga la varita de selección.'
+    - '&e/koth rewards <koth|id> &7- &fAbre la GUI para colocar recompensas.'
+    - '&e/koth loot <koth|id> &7- &fMuestra la GUI (solo lectura) de recompensas.'
+    - '&e/koth cmd <koth|id> <cmd> &7- &fAñade un comando ejecutable al ganar.'
+    - '&e/koth removecmd <koth|id> <índice|cmd> &7- &fElimina un comando del KoTH.'
+    - '&e/koth start <koth|id> <sec> <maxTime> &7- &fInicia manualmente un KoTH.'
+    - '&e/koth stop <koth|id> &7- &fDetiene forzosamente un KoTH activo.'
+    - '&e/koth tp <koth|id> &7- &fTeletransporta al centro del KoTH.'
+    - '&e/koth info <koth|id> &7- &fMuestra datos y horarios del KoTH.'
+    - '&e/koth claim &7- &fAbre el menú de recompensas pendientes.'
+    - ''
+    - '&7Usa &f/koth help 3 &7para más comandos.'
+    - '&7&m-------------------------------------------------'
+  page-3:
+    - '&7&m-------------------------------------------------'
+    - '&6&lSchedule &7(Página {page}/{max})'
+    - '&e/koth schedule &7- &fMuestra los próximos KoTHs ordenados por tiempo.'
+    - '&e/koth schedule list &7- &fLista todas las programaciones creadas (ID, koth, hora, día).'
+    - '&e/koth schedule create <koth|id> <day|daily> <HH:MM> <cap> <max> &7- &fPrograma un evento.'
+    - '&e/koth schedule remove <id> &7- &fElimina un horario de la lista.'
+    - '&7&m-------------------------------------------------'

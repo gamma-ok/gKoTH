@@ -1,0 +1,70 @@
+name: gKoTH
+main: me.gamma.koth.KoTHPlugin
+version: 1.0.0
+author: gamma
+description: Plugin de KoTH
+api-version: 1.13
+softdepend: [WorldEdit, gClans, PlaceholderAPI, Vault]
+depend: []
+
+commands:
+  koth:
+    description: Comando principal del plugin KoTH
+    usage: /koth <subcommand>
+    aliases: [kingofthehill]
+
+permissions:
+  koth.admin:
+    description: Acceso a todos los comandos administrativos
+    default: op
+  koth.player:
+    description: Acceso a comandos básicos
+    default: true
+  koth.create:
+    description: Permiso para crear KoTHs
+    default: op
+  koth.remove:
+    description: Permiso para eliminar KoTHs
+    default: op
+  koth.list:
+    description: Permiso para listar KoTHs
+    default: op
+  koth.enable:
+    description: Permiso para activar/desactivar KoTHs
+    default: op
+  koth.reload:
+    description: Permiso para recargar configuraciones
+    default: op
+  koth.wand:
+    description: Permiso para obtener la varita de selección
+    default: op
+  koth.rewards:
+    description: Permiso para administrar recompensas
+    default: op
+  koth.cmd:
+    description: Permiso para agregar comandos
+    default: op
+  koth.start:
+    description: Permiso para iniciar KoTHs manualmente
+    default: op
+  koth.stop:
+    description: Permiso para detener KoTHs
+    default: op
+  koth.tp:
+    description: Permiso para teletransportarse a KoTHs
+    default: op
+  koth.info:
+    description: Permiso para ver información de KoTHs
+    default: op
+  koth.loot:
+    description: Permiso para ver recompensas
+    default: true
+  koth.claim:
+    description: Permiso para reclamar recompensas
+    default: true
+  koth.schedule:
+    description: Permiso para ver horarios
+    default: true
+  koth.schedule.admin:
+    description: Permiso para administrar horarios
+    default: op

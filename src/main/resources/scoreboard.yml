@@ -1,0 +1,107 @@
+# Intervalo de actualización global en ticks (cada cuanto se llama al render)
+# Valores bajos = más fluido pero más CPU. 2-4 ticks es ideal
+update-interval: 2
+display:
+  title:
+    text:
+    - '&6&lFRUNAMC'
+    - '&e&lF&6&lRUNAMC'
+    - '&e&lF&f&lR&6&lUNAMC'
+    - '&e&lFR&f&lU&6&lNAMC'
+    - '&e&lFRU&f&lN&6&lAMC'
+    - '&e&lFRUN&f&lA&6&lMC'
+    - '&e&lFRUNA&f&lM&6&lC'
+    - '&e&lFRUNAM&f&lC'
+    - '&e&lFRUNAMC'
+    - '&6&lFRUNAMC'
+    - '&e&lFRUNAMC'
+    - '&6&lFRUNAMC'
+    - '&f&lFRUNAMC'
+    - '&e&lFRUNAMC'
+    - '&6&lFRUNAMC'
+    - '&e&lFRUNAMC'
+    - '&f&lFRUNAMC'
+    - '&6&lKOTH'
+    - '&e&lK&6&lOTH'
+    - '&e&lK&f&lO&6&lTH'
+    - '&e&lKO&f&lT&6&lH'
+    - '&e&lKOT&f&lH'
+    - '&e&lKOTH'
+    - '&6&lKOTH'
+    - '&e&lKOTH'
+    - '&6&lKOTH'
+    - '&f&lKOTH'
+    - '&e&lKOTH'
+    - '&6&lKOTH'
+    - '&e&lKOTH'
+    - '&f&lKOTH'
+    random: false
+    interval: 2
+  line-1:
+    text:
+    - '&7&m--------------------'
+    random: false
+    interval: 300
+    score: '11'
+  line-2:
+    text:
+    - '&6&lInfo'
+    random: false
+    interval: 300
+    score: '10'
+  line-3:
+    text:
+    - '&6&l┃ &fKoth: &e%koth%'
+    random: false
+    interval: 2
+    score: '9'
+  line-4:
+    text:
+    - '&6&l┃ &fCapturando: &e%player%'
+    random: false
+    interval: 2
+    score: '8'
+  line-5:
+    text:
+    - '&6&l┃ &fClan: &e%gclan_name%'
+    random: false
+    interval: 2
+    score: '7'
+  line-6:
+    text:
+    - '&6&l┃ &fTiempo: &e%koth_time%'
+    random: false
+    interval: 2
+    score: '6'
+  line-7:
+    text:
+    - '&6&l┃ &fTermina en: &c%koth_max_time%'
+    random: false
+    interval: 2
+    score: '5'
+  line-8:
+    text:
+    - '&6&l┃ &fCoords: &e%x%, %y%, %z%'
+    random: false
+    interval: 2
+    score: '4'
+  line-9:
+    text:
+    - ''
+    random: false
+    interval: 300
+    score: '3'
+  line-10:
+    text:
+    - '&7&ofrunamc.club'
+    - '&7&odsc.gg/frunamc'
+    - '&7&ostore.frunamc.club'
+    random: false
+    interval: 140
+    score: '2'
+  line-11:
+    text:
+    - '&7&m--------------------'
+    random: false
+    interval: 300
+    score: '1'

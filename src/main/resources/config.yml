@@ -1,0 +1,44 @@
+# ========================================== #
+#      KoTH System Main Configuration        #
+# ========================================== #
+
+settings:
+  time-zone: "America/Lima"
+  check-interval-ticks: 5
+  capture-notification-interval: 15  # Segundos entre notificaciones de captura
+  rewards-gui-size: 27
+  claim-gui-size: 27
+  wand-material: "GOLD_AXE"
+  wand-name: "&6&lKoTH Selection Wand"
+  wand-lore:
+    - "&7KoTH: &f<koth>"
+    - "&7ID: &f<id>"
+    - "&eClick Izquierdo: &fEstablece Punto 1"
+    - "&eClick Derecho: &fEstablece Punto 2"
+  blacklisted-worlds:
+    - "world_nether"
+    - "world_the_end"
+
+scoreboard:
+  enabled: true  # Activar o desactivar la scoreboard
+
+rewards:
+  target-distribution: "WINNER_ONLY" # "WINNER_ONLY" o "ALL_CLAN_MEMBERS"
+  command-distribution: "WINNER_ONLY" # "WINNER_ONLY" o "ALL_CLAN_MEMBERS"
+  full-inventory-action: "CLAIM_MENU"  # "DROP_ON_GROUND" o "CLAIM_MENU"
+  expiration-minutes: 30
+
+clan-integration:
+  enabled: true
+  points-per-koth: 50
+  hook-plugin-name: "gClans"
+
+database:
+  type: "SQLITE" # "SQLITE" o "MYSQL"
+  mysql:
+    host: "localhost"
+    port: 3306
+    database: "koth_db"
+    username: "root"
+    password: ""
+    pool-size: 10
