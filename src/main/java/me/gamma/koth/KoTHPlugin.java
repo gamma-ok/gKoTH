@@ -3,6 +3,7 @@ package me.gamma.koth;
 import me.gamma.koth.api.ClanHook;
 import me.gamma.koth.api.KoTHAPI;
 import me.gamma.koth.api.KothExpansion;
+import me.gamma.koth.api.WaypointManager;
 import me.gamma.koth.commands.KoTHCommand;
 import me.gamma.koth.config.ConfigManager;
 import me.gamma.koth.config.KoTHDataManager;
@@ -40,6 +41,7 @@ public class KoTHPlugin extends JavaPlugin {
     private RewardsGUI rewardsGUI;
     private ClaimGUI claimGUI;
     private LootViewManager lootViewManager;
+    private WaypointManager waypointManager;
     
     @Override
     public void onEnable() {
@@ -74,6 +76,9 @@ public class KoTHPlugin extends JavaPlugin {
         // Inicializar hook con gClans
         initializeClanHook();
         
+        // Inicializar WaypointManager
+        waypointManager = new WaypointManager(this);
+        
         // Registrar PlaceholderAPI
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
             new KothExpansion(this).register();
@@ -93,6 +98,11 @@ public class KoTHPlugin extends JavaPlugin {
     @Override
     public void onDisable() {
         getLogger().info("=== KoTH Plugin Disabling ===");
+        
+        // Eliminar todos los waypoints al desactivar
+        if (waypointManager != null) {
+            waypointManager.removeAllWaypoints();
+        }
         
         // Detener todos los KoTHs activos
         if (captureManager != null) {
@@ -284,5 +294,9 @@ public class KoTHPlugin extends JavaPlugin {
     
     public LootViewManager getLootViewManager() {
         return lootViewManager;
+    }
+    
+    public WaypointManager getWaypointManager() {
+        return waypointManager;
     }
 }

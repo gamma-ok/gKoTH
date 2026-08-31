@@ -42,17 +42,18 @@ public class CaptureManager {
 
     public void tickTime() {
         for (KoTH koth : kothManager.getActiveKoTHs()) {
-            if (!koth.isActive()) continue;
-            
+            if (!koth.isWaypointShown()) {
+                koth.setWaypointShown(true);
+                plugin.getWaypointManager().showKoTHWaypoint(koth);
+            }
+
             koth.tickTime();
-            
+
             if (!koth.isActive() && koth.isEndedByMaxTime()) {
                 handleMaxTimeReached(koth);
                 koth.setEndedByMaxTime(false);
-                continue;
-            }
-            
-            if (!koth.isActive()) {
+                koth.setWaypointShown(false);
+                plugin.getWaypointManager().removeKoTHWaypoint(koth);
                 continue;
             }
             
@@ -176,6 +177,11 @@ public class CaptureManager {
     public void onKoTHCaptured(KoTH koth, Player capturer) {
         koth.setActive(false);
         koth.setBeingCaptured(false);
+        
+        if (koth.isWaypointShown()) {
+            koth.setWaypointShown(false);
+            plugin.getWaypointManager().removeKoTHWaypoint(koth);
+        }
         
         Map<String, String> clanPlaceholders = new HashMap<>();
         if (plugin.getClanHook().isEnabled()) {
@@ -409,7 +415,7 @@ public class CaptureManager {
 
     public void stopAllKoTHs() {
         for (KoTH koth : kothManager.getActiveKoTHs()) {
-            koth.stop();
+            kothManager.stopKoTH(koth);
         }
         announcementCooldowns.clear();
         currentCapturers.clear();

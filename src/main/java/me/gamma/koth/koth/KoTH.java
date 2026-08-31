@@ -40,6 +40,7 @@ public class KoTH {
     private long totalDuration;
     
     private boolean endedByMaxTime;
+    private boolean waypointShown;
 
     public KoTH(int id, String name, KoTHPlugin plugin) {
         this.plugin = plugin;
@@ -56,6 +57,7 @@ public class KoTH {
         this.maxTimeLeft = 0;
         this.endedByMaxTime = false;
         this.totalDuration = 0;
+        this.waypointShown = false;
     }
 
     public void start(int captureTime, int maxTime) {
@@ -253,5 +255,6 @@ public class KoTH {
     public World getWorld() { return worldName != null ? Bukkit.getWorld(worldName) : null; }
     public long getCaptureDuration() { return captureDuration; }
     public long getTotalDuration() { return totalDuration; }
-
+    public boolean isWaypointShown() { return waypointShown; }
+    public void setWaypointShown(boolean waypointShown) { this.waypointShown = waypointShown; }
 }

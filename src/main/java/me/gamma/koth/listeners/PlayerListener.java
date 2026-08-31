@@ -25,7 +25,7 @@ public class PlayerListener implements Listener {
     @EventHandler(priority = EventPriority.NORMAL)
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
-        
+
         if (plugin.getKothManager().hasActiveKoTHs()) {
             List<KoTH> activeKoTHs = plugin.getKothManager().getActiveKoTHs();
             

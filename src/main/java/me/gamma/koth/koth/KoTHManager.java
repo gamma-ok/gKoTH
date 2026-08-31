@@ -143,6 +143,12 @@ public class KoTHManager {
 
     public boolean stopKoTH(KoTH koth) {
         if (koth == null || !koth.isActive()) return false;
+
+        if (koth.isWaypointShown()) {
+            koth.setWaypointShown(false);
+            plugin.getWaypointManager().removeKoTHWaypoint(koth);
+        }
+
         koth.stop();
         return true;
     }
