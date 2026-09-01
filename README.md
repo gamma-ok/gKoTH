@@ -70,6 +70,14 @@
 - Muestra solo el horario más cercano por KoTH.
 - Zona horaria configurable.
 
+### Integración con Lunar Client (Apollo)
+
+- Muestra un waypoint en el mapa/HUD de los jugadores que usan Lunar Client cuando un KoTH se activa.
+- El waypoint se actualiza automáticamente al centro del área del KoTH (calculado a partir de los dos puntos seleccionados con la wand).
+- Se elimina automáticamente en los tres casos que finalizan un KoTH: captura exitosa, tiempo máximo alcanzado, y detención manual (`/koth stop`).
+- Los waypoints se reenvían automáticamente a los jugadores que se reconectan mientras un KoTH sigue activo.
+- Funciona de forma opcional: si el jugador no usa Lunar Client, o si el plugin Apollo no está instalado en el servidor, esta función simplemente se desactiva sin afectar el resto del plugin.
+
 ### Estadísticas y Top
 
 - Registro de capturas por jugador y por clan.
@@ -261,9 +269,11 @@ database:
 | PlaceholderAPI | Opcional | 2.10.6+ | [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/) |
 | Vault | Opcional | 1.7 | [Vault](https://www.spigotmc.org/resources/vault.34315/) |
 | LuckPerms | Opcional | 5.x | [LuckPerms](https://luckperms.net/) |
+| Apollo (Lunar Client) | Opcional | 1.2.8+ | [Apollo](https://lunarclient.dev/apollo/introduction) |
 
 > El plugin funciona sin gClans, pero las funcionalidades de clan estarán desactivadas.
 > Los placeholders de clan (`%gclan_name%`, etc.) mostrarán "N/A" o vacío.
+> El plugin funciona sin Apollo, pero los KoTHs no mostrarán waypoints a los jugadores con Lunar Client.
 
 ## Permisos
 
@@ -342,6 +352,13 @@ CREATE TABLE koth_unclaimed_rewards (
 - **GUI de recompensas**: Permite agregar/eliminar items visualmente.
 - **Reclamación**: Al cerrar el menú de claim, se eliminan de la BD y los items restantes se dropean.
 - **Anti-duplicación**: Los items solo se pueden tomar con click izquierdo, no se pueden mover ni dropear.
+
+### Waypoints de Lunar Client (Apollo)
+
+- **Detección automática**: al iniciar, el plugin verifica si Apollo está instalado y disponible; si no lo está, la función se desactiva silenciosamente.
+- **Mostrar waypoint**: cuando un KoTH se activa, se calcula la posición del suelo más cercana al centro del área y se envía un waypoint nombrado `KoTH: <nombre>` a todos los jugadores online que usan Lunar Client.
+- **Sincronización al reconectar**: Apollo confirma el registro de un jugador de forma asíncrona tras el login, por lo que el envío de waypoints activos a jugadores que se reconectan se maneja mediante el evento `ApolloRegisterPlayerEvent` de Apollo, no directamente en el join de Bukkit.
+- **Limpieza centralizada**: la eliminación del waypoint está centralizada en `KoTHManager.stopKoTH()`, de forma que cualquier camino que detenga un KoTH (comando manual, captura, tiempo máximo, recarga del plugin) limpia el waypoint correctamente.
 
 ### Scoreboard Anti-Flicker
 
