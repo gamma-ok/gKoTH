@@ -56,6 +56,7 @@ public class KoTH {
         this.captureTimeLeft = 0;
         this.maxTimeLeft = 0;
         this.endedByMaxTime = false;
+        this.captureDuration = 0;
         this.totalDuration = 0;
         this.waypointShown = false;
     }
@@ -98,7 +99,7 @@ public class KoTH {
             }
         }
         
-        // Reducir tiempo de captura (solo si sigue siendo capturado
+        // Reducir tiempo de captura (solo si sigue siendo capturado)
         if (beingCaptured && currentCapturer != null) {
             if (captureTimeLeft > 0) {
                 captureTimeLeft--;
@@ -134,8 +135,8 @@ public class KoTH {
         this.currentCapturer = player.getUniqueId();
         this.currentCapturerName = player.getName();
         this.captureTimeLeft = captureTime;
-        this.lastCaptureTick = System.currentTimeMillis();  // Guardar cuando empezó
-        this.captureDuration = 0;  // Resetear duración
+        this.lastCaptureTick = System.currentTimeMillis();
+        this.captureDuration = 0;
     }
 
     public void resetCapture() {
@@ -145,6 +146,7 @@ public class KoTH {
         this.captureTimeLeft = captureTime;
     }
 
+    // Usar getBlockX/Y/Z para verificación inclusiva
     public boolean isInArea(Location location) {
         if (point1 == null || point2 == null) return false;
         if (location == null) return false;
@@ -152,16 +154,21 @@ public class KoTH {
         if (!location.getWorld().equals(point1.getWorld())) return false;
         if (!location.getWorld().equals(point2.getWorld())) return false;
         
-        double minX = Math.min(point1.getX(), point2.getX());
-        double maxX = Math.max(point1.getX(), point2.getX());
-        double minY = Math.min(point1.getY(), point2.getY());
-        double maxY = Math.max(point1.getY(), point2.getY());
-        double minZ = Math.min(point1.getZ(), point2.getZ());
-        double maxZ = Math.max(point1.getZ(), point2.getZ());
+        // Usar coordenadas de BLOQUE para comparación inclusiva
+        int minBlockX = Math.min(point1.getBlockX(), point2.getBlockX());
+        int maxBlockX = Math.max(point1.getBlockX(), point2.getBlockX());
+        int minBlockY = Math.min(point1.getBlockY(), point2.getBlockY());
+        int maxBlockY = Math.max(point1.getBlockY(), point2.getBlockY());
+        int minBlockZ = Math.min(point1.getBlockZ(), point2.getBlockZ());
+        int maxBlockZ = Math.max(point1.getBlockZ(), point2.getBlockZ());
         
-        return location.getX() >= minX && location.getX() <= maxX &&
-               location.getY() >= minY && location.getY() <= maxY &&
-               location.getZ() >= minZ && location.getZ() <= maxZ;
+        int playerBlockX = location.getBlockX();
+        int playerBlockY = location.getBlockY();
+        int playerBlockZ = location.getBlockZ();
+        
+        return playerBlockX >= minBlockX && playerBlockX <= maxBlockX &&
+               playerBlockY >= minBlockY && playerBlockY <= maxBlockY &&
+               playerBlockZ >= minBlockZ && playerBlockZ <= maxBlockZ;
     }
 
     public void updateCenter() {

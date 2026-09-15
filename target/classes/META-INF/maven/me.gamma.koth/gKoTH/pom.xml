@@ -119,6 +119,7 @@
             <scope>provided</scope>
         </dependency>
         
+        <!-- LunarClient API -->
         <dependency>
     		<groupId>com.lunarclient</groupId>
     		<artifactId>apollo-api</artifactId>
